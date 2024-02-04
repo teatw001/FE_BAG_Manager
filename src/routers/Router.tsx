@@ -11,7 +11,7 @@ export const router = createBrowserRouter([
     ),
     children: [
       { index: true, element: <div>Home Page</div> },
-      { path: "/about", element: <div>About Page</div> },
+      { path: "about", element: <div>About Page</div> },
     ],
   },
   // Định nghĩa route cho admin
@@ -24,8 +24,8 @@ export const router = createBrowserRouter([
     ),
     children: [
       { index: true, element: <Navigate to="dashboard" /> },
-      { path: "/dashboard", element: <div>Dashboard</div> },
-      { path: "/product", element: <div>Product Management</div> },
+      { path: "dashboard", element: <div>Dashboard</div> },
+      { path: "product", element: <div>Product Management</div> },
     ],
   },
   { path: "*", element: "Not Found Page" },
