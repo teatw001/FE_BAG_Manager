@@ -1,4 +1,5 @@
 import { Navigate, createBrowserRouter, Outlet, Link } from "react-router-dom";
+import LayoutAdmin from "../Layout/LayoutAdmin";
 
 export const router = createBrowserRouter([
   // Định nghĩa route cho website
@@ -19,7 +20,14 @@ export const router = createBrowserRouter([
           </div>
         ),
       },
-      { path: "about", element: <div>About Page</div> },
+      {
+        path: "about",
+        element: (
+          <div>
+            <LayoutAdmin />
+          </div>
+        ),
+      },
     ],
   },
   // Định nghĩa route cho admin
