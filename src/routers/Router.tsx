@@ -1,4 +1,4 @@
-import { Navigate, createBrowserRouter, Outlet } from "react-router-dom";
+import { Navigate, createBrowserRouter, Outlet, Link } from "react-router-dom";
 
 export const router = createBrowserRouter([
   // Định nghĩa route cho website
@@ -10,7 +10,15 @@ export const router = createBrowserRouter([
       </div>
     ),
     children: [
-      { index: true, element: <div>Home Page</div> },
+      {
+        index: true,
+        element: (
+          <div>
+            Home Page
+            <Link to={"/about"}>AB</Link>
+          </div>
+        ),
+      },
       { path: "about", element: <div>About Page</div> },
     ],
   },
