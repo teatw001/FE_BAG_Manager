@@ -5,6 +5,17 @@ const productsAPI = createApi({
   reducerPath: "products",
   baseQuery: fetchBaseQuery({
     baseUrl: `${api}`,
+    prepareHeaders: (headers) => {
+      // Add your authorization header here
+      const user = JSON.parse(localStorage.getItem("user") as any);
+
+      // console.log((user as any)?.token);
+
+      if ((user as any)?.token) {
+        headers.set("Authorization", `Bearer ${(user as any)?.token}`);
+      }
+      return headers;
+    },
   }),
   tagTypes: ["product"],
   endpoints: (builder) => ({

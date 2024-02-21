@@ -17,6 +17,11 @@ import {
   ShoppingBagIcon,
   UserCircleIcon,
   Cog6ToothIcon,
+  RectangleStackIcon,
+  ShoppingCartIcon,
+  UsersIcon,
+  AdjustmentsHorizontalIcon,
+  BriefcaseIcon,
   InboxIcon,
   PowerIcon,
 } from "@heroicons/react/24/solid";
@@ -25,6 +30,7 @@ import {
   ChevronDownIcon,
   CubeTransparentIcon,
 } from "@heroicons/react/24/outline";
+import { Link } from "react-router-dom";
 
 export function SidebarWithCta() {
   const [open, setOpen] = React.useState(0);
@@ -36,15 +42,15 @@ export function SidebarWithCta() {
 
   return (
     <Card
-      className="h-[calc(100vh-2rem)] w-full max-w-[20rem] p-4 shadow-xl shadow-blue-gray-900/5"
+      className=" h-full w-full max-w-[20rem] p-4 shadow-xl shadow-blue-gray-900/5"
       placeholder={"..."}
     >
       <div className="mb-2 p-4">
         <Typography variant="h5" color="blue-gray" placeholder={"..."}>
-          Sidebar
+          MZ SHOP
         </Typography>
       </div>
-      <List placeholder={"..."}>
+      <List className="" placeholder={"..."}>
         <Accordion
           placeholder={"..."}
           open={open === 1}
@@ -128,6 +134,7 @@ export function SidebarWithCta() {
               </Typography>
             </AccordionHeader>
           </ListItem>
+
           <AccordionBody className="py-1">
             <List placeholder={"..."} className="p-0">
               <ListItem placeholder={"..."}>
@@ -145,7 +152,133 @@ export function SidebarWithCta() {
             </List>
           </AccordionBody>
         </Accordion>
+
         <hr className="my-2 border-blue-gray-50" />
+        <Accordion
+          placeholder={"..."}
+          open={open === 3}
+          icon={
+            <ChevronDownIcon
+              strokeWidth={2.5}
+              className={`mx-auto h-4 w-4 transition-transform ${
+                open === 3 ? "rotate-180" : ""
+              }`}
+            />
+          }
+        >
+          <ListItem placeholder={"..."} className="p-0" selected={open === 3}>
+            <AccordionHeader
+              placeholder={"..."}
+              onClick={() => handleOpen(3)}
+              className="border-b-0 p-3"
+            >
+              <ListItemPrefix placeholder={"..."}>
+                <AdjustmentsHorizontalIcon className="h-5 w-5" />
+              </ListItemPrefix>
+              <Typography
+                placeholder={"..."}
+                color="blue-gray"
+                className="mr-auto font-normal"
+              >
+                Quản lí tài nguyên
+              </Typography>
+            </AccordionHeader>
+          </ListItem>
+
+          <AccordionBody className="py-1">
+            <List placeholder={"..."} className="p-0">
+              <Link to={"/List-Products"}>
+                <ListItem placeholder={"..."}>
+                  <ListItemPrefix placeholder={"..."}>
+                    <ChevronRightIcon strokeWidth={3} className="h-3 w-5" />
+                  </ListItemPrefix>
+                  Sản phẩm
+                </ListItem>
+              </Link>
+              <Link to={"/List-Cate"}>
+                <ListItem placeholder={"..."}>
+                  <ListItemPrefix placeholder={"..."}>
+                    <ChevronRightIcon strokeWidth={3} className="h-3 w-5" />
+                  </ListItemPrefix>
+                  Danh mục
+                </ListItem>
+              </Link>
+              {/* <ListItem placeholder={"..."}>
+                <ListItemPrefix placeholder={"..."}>
+                  <ChevronRightIcon strokeWidth={3} className="h-3 w-5" />
+                </ListItemPrefix>
+                Danh mục
+              </ListItem> */}
+              <Link to={"/List-Size"}>
+                <ListItem placeholder={"..."}>
+                  <ListItemPrefix placeholder={"..."}>
+                    <ChevronRightIcon strokeWidth={3} className="h-3 w-5" />
+                  </ListItemPrefix>
+                  Kích thước
+                </ListItem>
+              </Link>
+              <Link to={"/List-Logo"}>
+                <ListItem placeholder={"..."}>
+                  <ListItemPrefix placeholder={"..."}>
+                    <ChevronRightIcon strokeWidth={3} className="h-3 w-5" />
+                  </ListItemPrefix>
+                  Thương hiệu
+                </ListItem>
+              </Link>
+              <Link to={"/List-Color"}>
+                <ListItem placeholder={"..."}>
+                  <ListItemPrefix placeholder={"..."}>
+                    <ChevronRightIcon strokeWidth={3} className="h-3 w-5" />
+                  </ListItemPrefix>
+                  Màu sắc
+                </ListItem>
+              </Link>
+            </List>
+          </AccordionBody>
+        </Accordion>
+
+        <Accordion
+          placeholder={"..."}
+          open={open === 4}
+          icon={
+            <ChevronDownIcon
+              strokeWidth={2.5}
+              className={`mx-auto h-4 w-4 transition-transform ${
+                open === 4 ? "rotate-180" : ""
+              }`}
+            />
+          }
+        >
+          <ListItem placeholder={"..."} className="p-0" selected={open === 4}>
+            <AccordionHeader
+              placeholder={"..."}
+              onClick={() => handleOpen(4)}
+              className="border-b-0 p-3"
+            >
+              <ListItemPrefix placeholder={"..."}>
+                <UsersIcon className="h-5 w-5" />
+              </ListItemPrefix>
+              <Typography
+                placeholder={"..."}
+                color="blue-gray"
+                className="mr-auto font-normal"
+              >
+                Quản lí nhân sự
+              </Typography>
+            </AccordionHeader>
+          </ListItem>
+
+          <AccordionBody className="py-1">
+            <List placeholder={"..."} className="p-0">
+              <ListItem placeholder={"..."}>
+                <ListItemPrefix placeholder={"..."}>
+                  <ChevronRightIcon strokeWidth={3} className="h-3 w-5" />
+                </ListItemPrefix>
+                Quản lí nhân viên
+              </ListItem>
+            </List>
+          </AccordionBody>
+        </Accordion>
         <ListItem placeholder={"..."}>
           <ListItemPrefix placeholder={"..."}>
             <InboxIcon className="h-5 w-5" />
@@ -180,7 +313,7 @@ export function SidebarWithCta() {
           Log Out
         </ListItem>
       </List>
-      <Alert
+      {/* <Alert
         open={openAlert}
         className="mt-auto"
         onClose={() => setOpenAlert(false)}
@@ -218,7 +351,7 @@ export function SidebarWithCta() {
             Upgrade Now
           </Typography>
         </div>
-      </Alert>
+      </Alert> */}
     </Card>
   );
 }
